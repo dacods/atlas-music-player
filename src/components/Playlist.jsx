@@ -17,7 +17,7 @@ export default function Playlist() {
   const selectedTitle = "Tidal Drift";
 
   return (
-    <div className="w-full max-w-[400px]">
+    <div className="w-full">
       <h2 className="text-lg font-semibold mb-4">Playlist</h2>
       <div className="flex flex-col gap-2">
         {songs.map((song) => (
