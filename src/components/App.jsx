@@ -4,9 +4,8 @@ import Playlist from "./Playlist";
 
 function App() {
   return (
-    <div className="h-full flex flex-col justify-between p-8 min-h-screen">
+    <div className="min-h-screen flex flex-col justify-between items-center p-8 ">
       <MusicPlayer />
-      <Playlist></Playlist>
       <Footer />
     </div>
   );
