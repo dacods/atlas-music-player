@@ -1,12 +1,17 @@
 import volume from "../assets/Volume Icon.png"
 
-function VolumeControls() {
-    return (
-        <div className="flex items-center">
-            <img src={volume} alt="" />
-            <input type="range" defaultValue="30" min="0" max="100" className="w-full h-3  bg-[#D5D7D8] accent-[#64748B]"></input>
-        </div>
-    )
-}
+export default function VolumeControls() {
+  return (
+    <div className="flex items-center w-full max-w-[400px] gap-3">
+      <img src={volume} alt="Volume" className="h-5 w-5" />
 
-export default VolumeControls;
+      <input
+        type="range"
+        defaultValue="30"
+        min="0"
+        max="100"
+        className="flex-1 h-2 bg-gray-300 accent-gray-700"
+      />
+    </div>
+  )
+}

@@ -1,3 +1,7 @@
+import CurrentlyPlaying from "./CurrentlyPlaying"
+
 export default function MusicPlayer() {
-  return <p>Music player goes here</p>;
+  return (
+    <CurrentlyPlaying></CurrentlyPlaying>
+  )
 }
