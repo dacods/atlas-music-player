@@ -10,7 +10,7 @@ export default function VolumeControls() {
         defaultValue="30"
         min="0"
         max="100"
-        className="flex-1 h-2 bg-charcoal-gray accent-beige"
+        className="flex-1 h-2 bg-charcoal-gray dark:bg-deep-charcoal accent-beige dark:accent-dark-beige"
       />
     </div>
   )

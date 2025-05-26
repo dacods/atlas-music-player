@@ -18,8 +18,8 @@ export default function Playlist() {
 
   return (
     <div className="w-full">
-      <h2 className="text-lg font-semibold mb-4">Playlist</h2>
-      <div className="flex flex-col gap-2">
+      <h2 className="text-lg font-semibold mb-2">Playlist</h2>
+      <div className="flex flex-col gap-0">
         {songs.map((song) => (
           <PlayListItem
             key={song.title}

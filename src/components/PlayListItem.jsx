@@ -1,8 +1,8 @@
 export default function PlayListItem({ title, artist, length, selected }) {
   return (
     <div
-  className={`flex w-full items-center justify-between rounded-lg px-4 py-1 ${
-    selected ? "bg-beige text-black" : ""
+  className={`flex w-full items-center justify-between rounded-lg px-0 py-1 ${
+    selected ? "bg-beige dark:bg-dark-beige text-black" : ""
   }`}
 >
   <div className="flex flex-col">
