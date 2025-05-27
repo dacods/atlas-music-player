@@ -1,8 +1,15 @@
-function SongTitle() {
+interface SongTitleProps {
+  song?: {
+    title: string;
+    artist: string;
+  };
+}
+
+function SongTitle({ song }: SongTitleProps) {
     return (
         <div>
-            <h1 className="text-2xl font-bold " >Tidal Drift</h1>
-            <p className="text-base font-normal text-charcoal-gray">Echoes of the Sea</p>
+            <h1 className="text-2xl font-bold " >{song?.title}</h1>
+            <p className="text-base font-normal text-charcoal-gray">{song?.artist}</p>
         </div>
     )
 }
