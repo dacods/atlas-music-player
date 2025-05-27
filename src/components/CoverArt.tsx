@@ -1,9 +1,10 @@
 import placeholder from "../assets/placeholder.svg"
 
-function CoverArt() {
+
+function CoverArt({ src }: {src?: string}) {
     return (
         <div className="h-100 w-100 overflow-hidden rounded-lg">
-            <img src={placeholder} className="h-full w-full object-cover"></img>
+            <img src={src || placeholder} alt="Album Cover" className="h-full w-full object-cover"></img>
         </div>
     )
 }

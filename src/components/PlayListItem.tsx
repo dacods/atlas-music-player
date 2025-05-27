@@ -1,4 +1,11 @@
-export default function PlayListItem({ title, artist, length, selected }) {
+type PlayListItemProps = {
+  title: string;
+  artist: string;
+  length: string;
+  selected: boolean;
+}
+
+export default function PlayListItem({ title, artist, length, selected }: PlayListItemProps) {
   return (
     <div
   className={`flex w-full items-center justify-between rounded-lg px-0 py-1 ${
