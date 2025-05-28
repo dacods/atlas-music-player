@@ -1,32 +1,25 @@
 import PlayListItem from "./PlayListItem";
+import type { Song } from "./MusicPlayer";
 
-const songs = [
-  { title: "Painted in Blue", artist: "Soul Canvas", length: "5:55" },
-  { title: "Tidal Drift", artist: "Echoes of the Sea", length: "8:02" },
-  { title: "Fading Shadows", artist: "The Emberlight", length: "3:01" },
-  { title: "Cosmic Drift", artist: "Solar Flare", length: "5:01" },
-  { title: "Urban Serenade", artist: "Midnight Groove", length: "4:54" },
-  { title: "Whispers in the Wind", artist: "Rust & Ruin", length: "6:13" },
-  { title: "Electric Fever", artist: "Neon Jungle", length: "8:41" },
-  { title: "Edge of the Abyss", artist: "Steel Horizon", length: "2:27" },
-  { title: "Golden Haze", artist: "Velvet Waves", length: "3:15" },
-  { title: "Shatter the Silence", artist: "Thunderclap Echo", length: "8:22" },
-];
+interface PlaylistProps {
+  songs: Song[];
+  currentSong: number;
+  setCurrentSong: (idx: number) => void;
+}
 
-export default function Playlist() {
-  const selectedTitle = "Tidal Drift";
-
+export default function Playlist({ songs, currentSong, setCurrentSong}: PlaylistProps) {
   return (
     <div className="w-full">
       <h2 className="text-lg font-semibold mb-2">Playlist</h2>
       <div className="flex flex-col gap-0">
-        {songs.map((song) => (
+        {songs.map((song, idx) => (
           <PlayListItem
-            key={song.title}
+            key={song.id}
             title={song.title}
             artist={song.artist}
-            length={song.length}
-            selected={song.title === selectedTitle}
+            length={new Date(song.duration * 1000).toISOString().substr(14, 5).replace(/^0/, "")}
+            selected={idx === currentSong}
+            onClick={() => setCurrentSong(idx)}
           />
         ))}
       </div>

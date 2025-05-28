@@ -3,6 +3,7 @@ import SongTitle from "./SongTitle";
 import PlayControls from "./PlayControls";
 import VolumeControls from "./VolumeControls";
 import { Song } from "./MusicPlayer"
+import AudioPlayer from "./AudioPlayer";
 
 interface CurrentlyPlaying {
   loading: boolean;
@@ -15,6 +16,8 @@ interface CurrentlyPlaying {
   setSpeed: (speed: number) => void;
   speed: number;
   volume: number;
+  isShuffled: boolean;
+  onShuffle: () => void;
 }
 
 function CurrentlyPlaying({
@@ -27,16 +30,19 @@ function CurrentlyPlaying({
     setVolume,
     volume,
     setSpeed, 
-    speed
+    speed,
+    isShuffled,
+    onShuffle,
 }: CurrentlyPlaying) {
     const currentSongData = playlist[currentSong];
     console.log("Song:", currentSongData);
     console.log("Loadin:", loading);
     console.log("Playlist:", playlist);
     console.log("index of song", currentSong);
-    
+
     return (
         <div className="flex flex-col items-start w-full gap-6">
+            <AudioPlayer songUrl={currentSongData?.song} isPlaying={isPlaying} volume={volume} speed={speed}></AudioPlayer>
             <CoverArt src={loading ? undefined : currentSongData?.cover}></CoverArt>
             <SongTitle song={loading ? undefined : { title: currentSongData?.title || "", artist: currentSongData?.artist || ""}}></SongTitle>
             <PlayControls
@@ -44,6 +50,8 @@ function CurrentlyPlaying({
             onPrevious={() => setCurrentSong((currentSong - 1 + playlist.length) % playlist.length)}
             onPlayPause={() => setIsPlaying(!isPlaying)}
             isPlaying={isPlaying}
+            onShuffle={onShuffle}
+            isShuffled={isShuffled}
             speed={speed}
             setSpeed={setSpeed}
             ></PlayControls>

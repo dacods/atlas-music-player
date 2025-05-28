@@ -48,11 +48,9 @@ export default function PlayControls({
         <img src={skip} alt="Skip" className="h-5 w-5" />
       </button>
 
-      {onShuffle && (
-        <button className="p-2">
-          <img src={shuffle} alt="Shuffle" className={`h-5 w-5 ${isShuffled ? 'opacity-100' : 'opacity-50'}`} />
-        </button>
-      )}
+      <button onClick={onShuffle} disabled={!onShuffle} className="p-2">
+        <img src={shuffle} alt="Shuffle" className={`h-5 w-5 ${isShuffled ? 'opacity-100' : 'opacity-50'}`} />
+      </button>
     </div>
   )
 }

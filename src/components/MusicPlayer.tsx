@@ -1,6 +1,7 @@
 import CurrentlyPlaying from "./CurrentlyPlaying";
 import Playlist from "./Playlist";
 import { useEffect, useState } from "react";
+import AudioPlayer from "./AudioPlayer";
 
 export interface Song {
   artist: string;
@@ -20,6 +21,7 @@ export default function MusicPlayer() {
   const [song, setSong] = useState('');
   const [volume, setVolume] = useState(0.75);
   const [speed, setSpeed] = useState(1.0);
+  const [isShuffled, setIsShuffled] = useState(false);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -44,6 +46,10 @@ export default function MusicPlayer() {
     }
   }, [currentSong, playlist]);
 
+  const handleShuffle = () => {
+    setIsShuffled(sh => !sh);
+  };
+
   return (
     <div className="bg-candy-pink dark:bg-dark-candy-pink w-full max-w-225 rounded-xl shadow m-6 overflow-hidden outline-1 outline-charcoal-gray justify-center">
       <div className="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-6">
@@ -59,11 +65,20 @@ export default function MusicPlayer() {
             volume={volume}
             setSpeed={setSpeed}
             speed={speed}
+            isShuffled={isShuffled}
+            onShuffle={handleShuffle}
           />
+          {song && (
+            <AudioPlayer songUrl={song} isPlaying={isPlaying} volume={volume} speed={speed}></AudioPlayer>
+          )}
         </div>
 
         <div className="w-full md:flex-1 border-t md:border-t-0 md:border-l border-beige dark:border-dark-beige p-6">
-          <Playlist />
+          <Playlist
+            songs={playlist}
+            currentSong={currentSong}
+            setCurrentSong={setCurrentSong}
+          />
         </div>
       </div>
     </div>
