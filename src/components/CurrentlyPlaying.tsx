@@ -5,9 +5,10 @@ import VolumeControls from "./VolumeControls";
 import { Song } from "./MusicPlayer"
 import AudioPlayer from "./AudioPlayer";
 
-interface CurrentlyPlaying {
+interface CurrentlyPlayingProps {
   loading: boolean;
   playlist: Song[];
+  setPlaylist: (list: Song[]) => void;
   currentSong: number;
   setCurrentSong: (index: number) => void;
   setIsPlaying: (isPlaying: boolean) => void;
@@ -22,7 +23,8 @@ interface CurrentlyPlaying {
 
 function CurrentlyPlaying({
     loading, 
-    playlist, 
+    playlist,
+    setPlaylist,
     currentSong, 
     setCurrentSong, 
     setIsPlaying, 
@@ -33,7 +35,7 @@ function CurrentlyPlaying({
     speed,
     isShuffled,
     onShuffle,
-}: CurrentlyPlaying) {
+}: CurrentlyPlayingProps) {
     const currentSongData = playlist[currentSong];
     console.log("Song:", currentSongData);
     console.log("Loadin:", loading);
@@ -46,6 +48,8 @@ function CurrentlyPlaying({
             <CoverArt src={loading ? undefined : currentSongData?.cover}></CoverArt>
             <SongTitle song={loading ? undefined : { title: currentSongData?.title || "", artist: currentSongData?.artist || ""}}></SongTitle>
             <PlayControls
+            playlist={playlist}
+            setPlaylist={setPlaylist}
             onNext={() => setCurrentSong((currentSong + 1) % playlist.length)}
             onPrevious={() => setCurrentSong((currentSong - 1 + playlist.length) % playlist.length)}
             onPlayPause={() => setIsPlaying(!isPlaying)}

@@ -57,6 +57,7 @@ export default function MusicPlayer() {
           <CurrentlyPlaying 
             loading={loading}
             playlist={playlist}
+            setPlaylist={setPlaylist} 
             currentSong={currentSong}
             setCurrentSong={setCurrentSong}
             setIsPlaying={setIsPlaying}
