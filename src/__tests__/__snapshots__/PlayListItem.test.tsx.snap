@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders PlayListItem 1`] = `
+<div>
+  <div
+    class="flex w-full items-center justify-between rounded-lg px-0 py-1 "
+  >
+    <div
+      class="flex flex-col"
+    >
+      <p
+        class="font-semibold"
+      >
+        Song 1
+      </p>
+      <p
+        class="text-sm text-charcoal-gray"
+      >
+        Artist 1
+      </p>
+    </div>
+    <div
+      class="text-sm text-charcoal-gray whitespace-nowrap pl-4 shrink-0"
+    >
+      3:41
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders CoverArt 1`] = `
+<div>
+  <div
+    class="h-100 w-100 overflow-hidden rounded-lg"
+  >
+    <img
+      alt="Album Cover"
+      class="h-full w-full object-cover"
+      src="test-image.jpg"
+    />
+  </div>
+</div>
+`;
