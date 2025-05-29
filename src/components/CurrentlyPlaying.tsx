@@ -3,7 +3,6 @@ import SongTitle from "./SongTitle";
 import PlayControls from "./PlayControls";
 import VolumeControls from "./VolumeControls";
 import { Song } from "./MusicPlayer"
-import AudioPlayer from "./AudioPlayer";
 
 interface CurrentlyPlayingProps {
   loading: boolean;
@@ -30,7 +29,6 @@ function CurrentlyPlaying({
     setIsPlaying, 
     isPlaying, 
     setVolume,
-    volume,
     setSpeed, 
     speed,
     isShuffled,
@@ -44,7 +42,6 @@ function CurrentlyPlaying({
 
     return (
         <div className="flex flex-col items-start w-full gap-6">
-            <AudioPlayer songUrl={currentSongData?.song} isPlaying={isPlaying} volume={volume} speed={speed}></AudioPlayer>
             <CoverArt src={loading ? undefined : currentSongData?.cover}></CoverArt>
             <SongTitle song={loading ? undefined : { title: currentSongData?.title || "", artist: currentSongData?.artist || ""}}></SongTitle>
             <PlayControls
