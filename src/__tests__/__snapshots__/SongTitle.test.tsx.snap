@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`render SongTitle 1`] = `
+<div>
+  <div>
+    <h1
+      class="text-2xl font-bold "
+    >
+      Song 1
+    </h1>
+    <p
+      class="text-base font-normal text-charcoal-gray"
+    >
+      Artist 1
+    </p>
+  </div>
+</div>
+`;

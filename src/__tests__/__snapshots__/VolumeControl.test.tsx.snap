@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders VolumeControls 1`] = `
+<div>
+  <div
+    class="flex items-center w-full max-w-[400px] gap-3"
+  >
+    <img
+      alt="Volume"
+      class="h-5 w-5"
+      src="/src/assets/Volume%20Icon.png"
+    />
+    <input
+      class="flex-1 h-2 bg-charcoal-gray dark:bg-deep-charcoal accent-beige dark:accent-dark-beige"
+      max="100"
+      min="0"
+      type="range"
+      value="75"
+    />
+  </div>
+</div>
+`;
